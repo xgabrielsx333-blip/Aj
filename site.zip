@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Anna Julia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1 id="titulo" class="neon pulse">Olá, Najuliaa!</h1>
+<h2 id="subtitulo" class="neon">Este é um site feito para você</h2>
+
+
+    <!-- JavaScript para efeito de digitação -->
+    <script>
+        const textotitulo = "Olá, Najuliaa!";
+        const textosubtitulo = "Este é um site feito para você !";
+        const h1 = document.getElementById("titulo");
+        const h2 = document.getElementById("subtitulo");
+        let i = 0;
+        let j = 0;
+
+        h1.innerHTML = "";
+        h2.innerHTML = "";
+
+        function digitarTitulo() {
+            if (i < textotitulo.length) {
+                h1.innerHTML += textotitulo.charAt(i);
+                i++;
+                setTimeout(digitarTitulo, 170);
+            } else {
+                // Quando o título terminar, começa o subtítulo
+                setTimeout(digitarSubtitulo, 300);
+            }
+        }
+
+        function digitarSubtitulo() {
+            if (j < textosubtitulo.length) {
+                h2.innerHTML += textosubtitulo.charAt(j);
+                j++;
+                setTimeout(digitarSubtitulo, 60);
+            }
+        }
+
+        digitarTitulo();
+    </script>
+</body>
+<div class="stars" id="stars-container"></div>
+
+</html>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto&display=swap" rel="stylesheet">
+<!-- Fontes do Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
+<script>
+    const starsContainer = document.getElementById("stars-container");
+
+    for (let i = 0; i < 100; i++) {
+        const star = document.createElement("div");
+        star.classList.add("star");
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.animationDelay = `${Math.random() * 3}s`;
+        starsContainer.appendChild(star);
+    }
+</script>
+
+<section class="musicas-favoritas neon-border pulse">
+  <h3>Artistas que a Anna Julia ama : </h3>
+  <ul>
+    <li>Jão 🎤❤️</li>
+    <li>Olivia Rodrigo 🎶</li>
+    <li>Lagum 🎸</li>
+    <li>Sabrina Carpenter 🎵</li>
+    <li>Taylor Swift 🎵 </li>
+  </ul>
+</section>
+
+<section class="carrossel">
+  <div class="slide ativo">
+    <img src="imagens/OIP.webp" alt="Jão">
+    <h3>Jão</h3>
+    <p>"Ouço a sua voz mas não vejo você..."</p>
+  </div>
+
+  <div class="slide">
+    <img src="imagens/oliviaro.webp" alt="Olivia Rodrigo">
+    <h3>Olivia Rodrigo</h3>
+    <p>"Do you get déjà vu when she’s with you?..."</p>
+  </div>
+
+  <div class="slide">
+    <img src="imagens/lagum.webp" alt="Charlie Gillespie">
+    <h3>Lagum</h3>
+    <p>"E ela me lembra aquela moça de Ipanema
+Só que não samba, mas vai virar poema"</p>
+  </div>
+
+  <div class="slide">
+    <img src="imagens/sabrina.webp" alt="Sabrina Carpenter">
+    <h3>Sabrina Carpenter</h3>
+    <p>"Well, it's fleetin', like we're all gonna die (we're all gonna die)"</p>
+  </div>
+
+  <div class="slide">
+    <img src="imagens/taylor.webp" alt="Sabrina Carpenter">
+    <h3>Taylor Swift</h3>
+    <p>"For you, I would cross the line.."</p>
+  </div>
+
+  <!-- Botões -->
+  <div class="controles">
+    <button onclick="mudarSlide(-1)">←</button>
+    <button onclick="mudarSlide(1)">→</button>
+  </div>
+</section>
+
+<script>
+let slideIndex = 0;
+const slides = document.querySelectorAll(".slide");
+
+function mostrarSlide(n) {
+  slides.forEach(slide => slide.classList.remove("ativo"));
+  slideIndex = (n + slides.length) % slides.length;
+  slides[slideIndex].classList.add("ativo");
+}
+
+function mudarSlide(direcao) {
+  mostrarSlide(slideIndex + direcao);
+}
+
+// Troca automática a cada 5 segundos
+setInterval(() => mudarSlide(1), 5000);
+
+// Inicializa
+mostrarSlide(slideIndex);
+</script> 
+
+<section class="playlist-personalizada">
+  <h2 class="gradient"> Músicas</h2>
+
+  <!-- Jão – Ainda te amo -->
+  <div class="mini‑player">
+    <h3>Jão – Ainda te amo</h3>
+    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/55GFbaI6W1laRMFdLdRw8Z?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+  <!-- Olivia Rodrigo – Deja Vu -->
+  <div class="mini‑player">
+    <h3>Olivia Rodrigo – Deja Vu</h3>
+    <iframe style="border-radius:12px"
+      src="https://open.spotify.com/embed/track/6HU7h9RYOaPRFeh0R3UeAr?utm_source=generator"
+      width="100%" height="152" frameborder="0" allowtransparency="true" allow="encrypted-media">
+    </iframe>
+  </div>
+
+  <!-- Lagum – Musa do Inverno -->
+  <div class="mini‑player">
+    <h3>Lagum – Musa do Inverno</h3>
+    <iframe style="border-radius:12px"
+      src="https://open.spotify.com/embed/track/4dyAtcaBVmMmnR5bwg3u50?utm_source=generator"
+      width="100%" height="152" frameborder="0" allowtransparency="true" allow="encrypted-media">
+    </iframe>
+  </div>
+
+  <!-- Sabrina Carpenter – 15 Minutes -->
+  <div class="mini‑player">
+    <h3>Sabrina Carpenter – 15 Minutes</h3>
+    <iframe style="border-radius:12px"
+      src="https://open.spotify.com/embed/track/1zhvxTuSha22nsUT5Nw8gE?utm_source=generator"
+      width="100%" height="152" frameborder="0" allowtransparency="true" allow="encrypted-media">
+    </iframe>
+  </div>
+
+  <!-- Taylor Swift – Don’t Blame Me -->
+  <div class="mini‑player">
+    <h3>Taylor Swift – Don’t Blame Me</h3>
+    <iframe style="border-radius:12px"
+      src="https://open.spotify.com/embed/track/1R0a2iXumgCiFb7HEZ7gUE?utm_source=generator"
+      width="100%" height="152" frameborder="0" allowtransparency="true" allow="encrypted-media">
+    </iframe>
+  </div>
+
+</section>
+
+</h3>Feito especialmente para Anna !
+
+<div class="corner top-left"></div>
+<div class="corner top-right"></div>
+<div class="corner bottom-left"></div>
+<div class="corner bottom-right"></div>
+
